@@ -1,1 +1,2 @@
-export * from "./IStackProps"
+export * from "./IStackProps";
+export * from "./ITags";
