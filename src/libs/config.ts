@@ -3,12 +3,7 @@ import path from "path";
 import { IStackProps } from "../types";
 
 export class Config {
-  constructor(
-    readonly env: string,
-    readonly inventoryFolder: string,
-    readonly group: string,
-    readonly component: string
-  ) {
+  constructor(readonly env: string, readonly inventoryFolder: string) {
     const globalConfigFile = path.join(
       this.inventoryFolder,
       "config",
@@ -38,8 +33,6 @@ export class Config {
     this.configuration = {
       ...globalConfig,
       ...envConfig,
-      group,
-      component,
     };
   }
 
@@ -71,7 +64,7 @@ export class Config {
   }
 }
 
-export function loadConfig(group: string, component: string): Config {
+export function loadConfig(): Config {
   const currentEnv = process.env.K2_ENV ?? "";
 
   const inventoryFolder = process.env.K2_INVENTORY ?? process.cwd();
@@ -92,5 +85,5 @@ export function loadConfig(group: string, component: string): Config {
     throw new Error("no config file found for env at " + envConfigFile);
   }
 
-  return new Config(currentEnv, inventoryFolder, group, component);
+  return new Config(currentEnv, inventoryFolder);
 }
