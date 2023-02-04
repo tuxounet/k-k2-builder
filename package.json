@@ -1,6 +1,6 @@
 {
   "name": "@tuxounet-k2/builder",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "K2 Build System Infrastructure Shared Components and Utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

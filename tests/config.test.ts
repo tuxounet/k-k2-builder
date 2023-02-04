@@ -5,10 +5,11 @@ describe("config testing", () => {
     process.env.K2_ENV = "test";
     process.env.K2_INVENTORY = path.join(__dirname, "fakes");
 
-    const config = loadConfig();
+    const config = loadConfig("group1", "component1");
     expect(config).not.toBeUndefined();
     expect(config.get("global.config.key")).toBe("value30");
     expect(config.get("specific.env.key")).toBe("value1");
+    expect(config.get("group1-component1.custom")).toBe("aloha");
     expect(config.getOrDefault("inexistant", "unknow")).toBe("unknow");
   });
 });
