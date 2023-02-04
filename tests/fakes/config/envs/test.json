@@ -3,5 +3,8 @@
         "env": {
             "key": "value1"
         }
+    },
+    "group1-component1": {
+        "custom": "aloha"
     }
 }
