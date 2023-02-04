@@ -1,6 +1,6 @@
 {
   "name": "@tuxounet-k2/builder",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "K2 Build System Infrastructure Shared Components and Utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,8 @@
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
     "lint": "eslint ./src --fix",
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test:watch-coverage": "jest --watch --coverage"
   },
