@@ -1,4 +1,4 @@
-import { Config, loadConfig } from "../src/libs/config";
+import { loadConfig } from "../src/libs/config";
 import path from "path";
 describe("config testing", () => {
   test("nominal config load", async () => {
@@ -7,8 +7,8 @@ describe("config testing", () => {
 
     const config = loadConfig();
     expect(config).not.toBeUndefined();
-    expect(config.get("global.config.key", "unknow")).toBe("value30");
-    expect(config.get("specific.env.key", "unknow")).toBe("value1");
-    expect(config.get("inexistant", "unknow")).toBe("unknow");
+    expect(config.get("global.config.key")).toBe("value30");
+    expect(config.get("specific.env.key")).toBe("value1");
+    expect(config.getOrDefault("inexistant", "unknow")).toBe("unknow");
   });
 });

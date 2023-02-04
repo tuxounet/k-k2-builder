@@ -37,7 +37,7 @@ export class Config {
   }
 
   private readonly configuration: IStackProps;
-  get<T>(path: string, defaultValue: T): T {
+  getOrDefault<T>(path: string, defaultValue: T): T {
     const current = this.configuration as any;
     const travel = (regexp: RegExp): any =>
       String.prototype.split
@@ -52,8 +52,8 @@ export class Config {
       ? defaultValue
       : (result as T);
   }
-  getOrThrow<T>(path: string): T {
-    const result = this.get(path, null);
+  get<T>(path: string): T {
+    const result = this.getOrDefault(path, null);
 
     if (result === null) {
       throw new Error("value not found in config at path " + path);
