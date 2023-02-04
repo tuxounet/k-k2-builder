@@ -52,6 +52,15 @@ export class Config {
       ? defaultValue
       : (result as T);
   }
+  getOrThrow<T>(path: string): T {
+    const result = this.get(path, null);
+
+    if (result === null) {
+      throw new Error("value not found in config at path " + path);
+    }
+
+    return result as T;
+  }
 }
 
 export function loadConfig(): Config {
