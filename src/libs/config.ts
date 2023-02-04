@@ -3,7 +3,11 @@ import path from "path";
 import { IStackProps } from "../types";
 
 export class Config {
-  constructor(readonly env: string, readonly inventoryFolder: string) {
+  constructor(
+    readonly env: string,
+    readonly inventoryFolder: string,
+    locals?: Record<string, unknown>
+  ) {
     const globalConfigFile = path.join(
       this.inventoryFolder,
       "config",
@@ -33,6 +37,7 @@ export class Config {
     this.configuration = {
       ...globalConfig,
       ...envConfig,
+      ...locals,
     };
   }
 
@@ -64,7 +69,7 @@ export class Config {
   }
 }
 
-export function loadConfig(): Config {
+export function loadConfig(locals?: Record<string, unknown>): Config {
   const currentEnv = process.env.K2_ENV ?? "";
 
   const inventoryFolder = process.env.K2_INVENTORY ?? process.cwd();
