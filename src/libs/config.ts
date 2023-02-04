@@ -36,7 +36,7 @@ export class Config {
     };
   }
 
-  private readonly configuration: IStackProps;
+  readonly configuration: IStackProps;
   getOrDefault<T>(path: string, defaultValue: T): T {
     const current = this.configuration as any;
     const travel = (regexp: RegExp): any =>
