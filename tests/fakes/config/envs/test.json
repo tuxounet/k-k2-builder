@@ -1,0 +1,7 @@
+{
+    "specific": {
+        "env": {
+            "key": "value1"
+        }
+    }
+}
