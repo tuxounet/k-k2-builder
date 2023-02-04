@@ -90,5 +90,5 @@ export function loadConfig(locals?: Record<string, unknown>): Config {
     throw new Error("no config file found for env at " + envConfigFile);
   }
 
-  return new Config(currentEnv, inventoryFolder);
+  return new Config(currentEnv, inventoryFolder, locals);
 }
